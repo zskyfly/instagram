@@ -20,4 +20,9 @@ class InstagramData {
         let url = self.data.valueForKeyPath("images.low_resolution.url") as! String
         return NSURL(string: url)!
     }
+    
+    func getStandardResPhotoUrl() -> NSURL {
+        let url = self.data.valueForKeyPath("images.standard_resolution.url") as! String
+        return NSURL(string: url)!
+    }
 }

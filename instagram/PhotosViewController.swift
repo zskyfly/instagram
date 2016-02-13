@@ -11,10 +11,14 @@ import UIKit
 class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var data = NSArray()
+
     @IBOutlet weak var photosTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Initialize a UIRefreshControl
+        let refreshControl = UIRefreshControl()
+        
         photosTableView.dataSource = self
         photosTableView.delegate = self
         photosTableView.rowHeight = 320
@@ -48,16 +52,26 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        let vc = segue.destinationViewController as! PhotoDetailsViewController
+        let indexPath = photosTableView.indexPathForCell(sender as! UITableViewCell)! as NSIndexPath
+        let instagramResult = InstagramData(data: self.data[indexPath.row] as! NSDictionary)
+        vc.setMyPhotoUrl(instagramResult.getLowResPhotoUrl())
+    }
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("com.zskyfly.PhotosTableViewCell", forIndexPath: indexPath) as! PhotosTableViewCell
         let instagramResult = InstagramData(data: self.data[indexPath.row] as! NSDictionary)
-        cell.addPhotoToCell(instagramResult.getLowResPhotoUrl())
+        cell.addPhotoToCell(instagramResult.getStandardResPhotoUrl())
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.data.count
     }
+    
+
 }
 
