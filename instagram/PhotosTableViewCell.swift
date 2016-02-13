@@ -24,4 +24,7 @@ class PhotosTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func addPhotoToCell(photoUrl: NSURL) {
+        photoImageView.setImageWithURL(photoUrl)
+    }
 }

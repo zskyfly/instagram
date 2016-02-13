@@ -51,25 +51,13 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("com.zskyfly.PhotosTableViewCell", forIndexPath: indexPath) as! PhotosTableViewCell
-        let index = indexPath.row
-        let data = self.data[index] as! NSDictionary
-        let lowResUrl = getLowResUrlFromData(data)
-        cell.photoImageView?.setImageWithURL(lowResUrl)
-        
-        
+        let instagramResult = InstagramData(data: self.data[indexPath.row] as! NSDictionary)
+        cell.addPhotoToCell(instagramResult.getLowResPhotoUrl())
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print ("photo count \(self.data.count)")
         return self.data.count
     }
-    
-    func getLowResUrlFromData(data: NSDictionary) -> NSURL {
-        let url = data.valueForKeyPath("images.low_resolution.url") as! String
-        return NSURL(string: url)!
-    }
-
-
 }
 
