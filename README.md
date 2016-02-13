@@ -2,7 +2,7 @@
 
 **Instagramarama** is an Instagram client.
 
-Time spent: **5** hours spent in total
+Time spent: **6** hours spent in total
 
 ## Milestones
 
@@ -11,25 +11,25 @@ Time spent: **5** hours spent in total
 - [x] Milestone 3: Build the Main Photo Feed
 - [x] Milestone 4: Build the Details Screen
 - [x] Milestone 5: Add Pull to Refresh
-- [ ] Bonus 1: Add User Profile Image and Names
+- [x] Bonus 1: Add User Profile Image and Names
 - [ ] Bonus 2: Infinite Scrolling
 - [ ] Bonus 3: Zoomable Photo View
 
 The following **additional** features are implemented:
 
-- [x] Created separate class for InstagramData
+- [x] Created separate data abstraction class for InstagramData
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://cloud.githubusercontent.com/assets/1156702/13024973/8b9a81b0-d1b2-11e5-9f5c-f35aa5e0df24.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://cloud.githubusercontent.com/assets/1156702/13030362/e8d88b56-d25c-11e5-8b5a-88682e1e77ab.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-- Unfortunately I was pressed for time, so didn't get to try the bonus features.  Planning to circle back and add them this weekend.
+- Unfortunately I was pressed for time, so didn't get to try all the bonus features.  Planning to circle back and add more throughout the weekend.
 
 ## License
 
