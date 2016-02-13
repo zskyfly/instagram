@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Photos View Controller-->
+        <!--Instagramarama-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PhotosViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -13,20 +13,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="322" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nkd-Cg-9e3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="320" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nkd-Cg-9e3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="com.zskyfly.PhotosTableViewCell" rowHeight="322" id="MS4-CZ-9c8" customClass="PhotosTableViewCell" customModule="instagram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="322"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="com.zskyfly.PhotosTableViewCell" rowHeight="320" id="MS4-CZ-9c8" customClass="PhotosTableViewCell" customModule="instagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="320"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MS4-CZ-9c8" id="NaG-Ok-A6Q">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="321.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="319.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="nJJ-oK-sf0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="321.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="319.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -41,7 +41,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9ZA-Qu-ruF"/>
+                    <navigationItem key="navigationItem" title="Instagramarama" id="9ZA-Qu-ruF"/>
                     <connections>
                         <outlet property="photosTableView" destination="Nkd-Cg-9e3" id="OjX-IK-PNB"/>
                     </connections>

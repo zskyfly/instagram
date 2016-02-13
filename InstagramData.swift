@@ -25,4 +25,14 @@ class InstagramData {
         let url = self.data.valueForKeyPath("images.standard_resolution.url") as! String
         return NSURL(string: url)!
     }
+
+    func getUsername() -> String {
+        let username = self.data.valueForKeyPath("user.username") as! String
+        return username
+    }
+
+    func getProfilePictureUrl() -> NSURL {
+        let profilePictureUrl = self.data.valueForKeyPath("user.profile_picture") as! String
+        return NSURL(string: profilePictureUrl)!
+    }
 }
