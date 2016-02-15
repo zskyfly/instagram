@@ -8,9 +8,10 @@
 
 import UIKit
 
-class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
 
     var instagramData = [InstagramData]()
+    var isMoreDataLoading = false
 
     @IBOutlet weak var photosTableView: UITableView!
     
@@ -25,6 +26,13 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
         photosTableView.insertSubview(refreshControl, atIndex: 0)
 
+        let tableFooterView: UIView = UIView(frame: CGRectMake(0, 0, 320, 50))
+        let loadingView: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        loadingView.startAnimating()
+        loadingView.center = tableFooterView.center
+        tableFooterView.addSubview(loadingView)
+        self.photosTableView.tableFooterView = tableFooterView
+
         reloadPhotos()
     }
 
@@ -38,13 +46,24 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let vc = segue.destinationViewController as! PhotoDetailsViewController
         let indexPath = photosTableView.indexPathForCell(sender as! UITableViewCell)! as NSIndexPath
         let instagramResult = instagramData[indexPath.section]
-        vc.setMyPhotoUrl(instagramResult.getLowResPhotoUrl())
+        vc.setMyPhotoUrl(instagramResult.getStandardResPhotoUrl())
+    }
+
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            let scrollViewContentHeight = photosTableView.contentSize.height
+            let scrollViewOffsetThreshold = scrollViewContentHeight - photosTableView.bounds.size.height
+            if (scrollView.contentOffset.y > scrollViewOffsetThreshold && photosTableView.dragging) {
+                isMoreDataLoading = true
+                reloadPhotos(nil, replaceData: false)
+            }
+        }
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("com.zskyfly.PhotosTableViewCell", forIndexPath: indexPath) as! PhotosTableViewCell
         let instagramResult = instagramData[indexPath.section]
-        cell.addPhotoToCell(instagramResult.getStandardResPhotoUrl())
+        cell.addPhotoToCell(instagramResult.getLowResPhotoUrl())
         return cell
     }
 
@@ -92,7 +111,7 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         reloadPhotos(refreshControl)
     }
 
-    func reloadPhotos(refreshControl: UIRefreshControl? = nil) {
+    func reloadPhotos(refreshControl: UIRefreshControl? = nil, replaceData: Bool = true) {
         let clientId = "e05c462ebd86446ea48a5af73769b602"
         let url = NSURL(string:"https://api.instagram.com/v1/media/popular?client_id=\(clientId)")
         let request = NSURLRequest(URL: url!)
@@ -107,20 +126,24 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 if let data = dataOrNil {
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
-//                            NSLog("response: \(responseDictionary)")
-                            self.initInstagramData(responseDictionary["data"] as! NSArray)
-                            self.photosTableView.reloadData()
-                            if refreshControl != nil {
-                                refreshControl!.endRefreshing()
-                            }
+//                      NSLog("response: \(responseDictionary)")
+                        self.initInstagramData(responseDictionary["data"] as! NSArray, replaceData: replaceData)
+                        self.photosTableView.reloadData()
+                        if refreshControl != nil {
+                            refreshControl!.endRefreshing()
+                        }
+                        self.isMoreDataLoading = false
                     }
                 }
         });
         task.resume()
     }
 
-    func initInstagramData(data: NSArray) {
+    func initInstagramData(data: NSArray, replaceData: Bool = true) {
+        if (replaceData) {
         self.instagramData.removeAll()
+        }
+
         for item in data {
             self.instagramData.append(InstagramData(data: item as! NSDictionary))
         }
