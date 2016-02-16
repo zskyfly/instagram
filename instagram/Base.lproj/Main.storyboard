@@ -54,18 +54,72 @@
         <scene sceneID="MGP-cE-nor">
             <objects>
                 <viewController id="jNo-Ww-3QL" customClass="PhotoDetailsViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
-                    <imageView key="view" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="vX7-Lg-VGd">
+                    <imageView key="view" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="vX7-Lg-VGd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="fQg-pY-UjZ" appends="YES" id="djm-aI-hfH"/>
+                        </connections>
                     </imageView>
                     <navigationItem key="navigationItem" id="oRn-Mn-qrB"/>
                     <connections>
                         <outlet property="photoImageView" destination="vX7-Lg-VGd" id="E1K-TJ-aOm"/>
+                        <outlet property="tapGestureRecognizer" destination="fQg-pY-UjZ" id="mfG-NW-SCg"/>
+                        <segue destination="l8t-DS-THj" kind="modal" identifier="segueFullScreenPhoto" modalTransitionStyle="crossDissolve" id="gbT-eX-5Mi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lBs-24-Q1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fQg-pY-UjZ">
+                    <connections>
+                        <action selector="didTapImage:" destination="jNo-Ww-3QL" id="9KG-1r-fLr"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1036" y="319"/>
+        </scene>
+        <!--Full Screen Photo View Controller-->
+        <scene sceneID="NHN-Ll-yAD">
+            <objects>
+                <viewController id="l8t-DS-THj" customClass="FullScreenPhotoViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q16-Yg-mA1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" maximumZoomScale="3" id="rRV-a0-M8z">
+                                <rect key="frame" x="0.0" y="0.0" width="319" height="522"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="qWz-W5-aOh">
+                                        <rect key="frame" x="-1" y="0.0" width="320" height="522"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DRw-62-fKi">
+                                <rect key="frame" x="0.0" y="525" width="320" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="close">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickDismiss:" destination="l8t-DS-THj" eventType="touchUpInside" id="qj2-9T-f5F"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="dismissButton" destination="DRw-62-fKi" id="4sb-Aw-J8f"/>
+                        <outlet property="fullScreenImageView" destination="qWz-W5-aOh" id="Nds-mX-TZe"/>
+                        <outlet property="fullScreenScrollView" destination="rRV-a0-M8z" id="lBS-o3-fJ1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lno-x2-RiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1441" y="319"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gKn-QO-DIS">

@@ -35,4 +35,10 @@ class InstagramData {
         let profilePictureUrl = self.data.valueForKeyPath("user.profile_picture") as! String
         return NSURL(string: profilePictureUrl)!
     }
+    
+    func getLikeCount() -> String {
+        let likeCount = self.data.valueForKeyPath("likes.count") as! Int
+        let likeCountFloat = Double(likeCount) / 1000.0
+        return String(format: "%.1fk likes", likeCountFloat)
+    }
 }

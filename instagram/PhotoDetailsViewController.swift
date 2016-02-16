@@ -8,14 +8,17 @@
 
 import UIKit
 
-class PhotoDetailsViewController: UIViewController {
+class PhotoDetailsViewController: UIViewController, UIGestureRecognizerDelegate {
 
     internal var photoUrl: NSURL!
 
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet var photoImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        tapGestureRecognizer.delegate = self
         photoImageView.setImageWithURL(photoUrl)
+        photoImageView.userInteractionEnabled = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,5 +28,16 @@ class PhotoDetailsViewController: UIViewController {
     
     func setMyPhotoUrl(url: NSURL) {
         self.photoUrl = url
+    }
+    
+    @IBAction func didTapImage(sender: UITapGestureRecognizer) {
+        performSegueWithIdentifier("segueFullScreenPhoto", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        let destinationViewController = segue.destinationViewController as! FullScreenPhotoViewController
+        
+        destinationViewController.photoUrl = self.photoUrl
+        
     }
 }

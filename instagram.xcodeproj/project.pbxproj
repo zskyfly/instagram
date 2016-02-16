@@ -11,6 +11,8 @@
 		930F78EA1C6E81A1008F1044 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F78E91C6E81A1008F1044 /* PhotosTableViewCell.swift */; };
 		930F78EC1C6EAD88008F1044 /* InstagramData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F78EB1C6EAD88008F1044 /* InstagramData.swift */; };
 		930F78F01C6EB6C6008F1044 /* PhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F78EF1C6EB6C6008F1044 /* PhotoDetailsViewController.swift */; };
+		930F78F31C727363008F1044 /* FullScreenPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F78F11C727363008F1044 /* FullScreenPhotoViewController.swift */; };
+		930F78F41C727363008F1044 /* FullScreenPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 930F78F21C727363008F1044 /* FullScreenPhotoViewController.xib */; };
 		936326B91C6E5EF9009306B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936326B81C6E5EF9009306B6 /* AppDelegate.swift */; };
 		936326BB1C6E5EF9009306B6 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936326BA1C6E5EF9009306B6 /* PhotosViewController.swift */; };
 		936326BE1C6E5EF9009306B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 936326BC1C6E5EF9009306B6 /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 		930F78E91C6E81A1008F1044 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		930F78EB1C6EAD88008F1044 /* InstagramData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstagramData.swift; path = ../InstagramData.swift; sourceTree = "<group>"; };
 		930F78EF1C6EB6C6008F1044 /* PhotoDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailsViewController.swift; sourceTree = "<group>"; };
+		930F78F11C727363008F1044 /* FullScreenPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoViewController.swift; sourceTree = "<group>"; };
+		930F78F21C727363008F1044 /* FullScreenPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FullScreenPhotoViewController.xib; sourceTree = "<group>"; };
 		936326B51C6E5EF9009306B6 /* instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		936326B81C6E5EF9009306B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		936326BA1C6E5EF9009306B6 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 				936326B81C6E5EF9009306B6 /* AppDelegate.swift */,
 				936326BA1C6E5EF9009306B6 /* PhotosViewController.swift */,
 				936326BC1C6E5EF9009306B6 /* Main.storyboard */,
+				930F78F11C727363008F1044 /* FullScreenPhotoViewController.swift */,
+				930F78F21C727363008F1044 /* FullScreenPhotoViewController.xib */,
 				930F78E91C6E81A1008F1044 /* PhotosTableViewCell.swift */,
 				936326BF1C6E5EF9009306B6 /* Assets.xcassets */,
 				936326C11C6E5EF9009306B6 /* LaunchScreen.storyboard */,
@@ -160,6 +166,7 @@
 			files = (
 				936326C31C6E5EF9009306B6 /* LaunchScreen.storyboard in Resources */,
 				936326C01C6E5EF9009306B6 /* Assets.xcassets in Resources */,
+				930F78F41C727363008F1044 /* FullScreenPhotoViewController.xib in Resources */,
 				936326BE1C6E5EF9009306B6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,6 +230,7 @@
 				930F78F01C6EB6C6008F1044 /* PhotoDetailsViewController.swift in Sources */,
 				936326BB1C6E5EF9009306B6 /* PhotosViewController.swift in Sources */,
 				930F78EC1C6EAD88008F1044 /* InstagramData.swift in Sources */,
+				930F78F31C727363008F1044 /* FullScreenPhotoViewController.swift in Sources */,
 				936326B91C6E5EF9009306B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

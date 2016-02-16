@@ -13,23 +13,25 @@ Time spent: **6** hours spent in total
 - [x] Milestone 5: Add Pull to Refresh
 - [x] Bonus 1: Add User Profile Image and Names
 - [x] Bonus 2: Infinite Scrolling
-- [ ] Bonus 3: Zoomable Photo View
+- [x] Bonus 3: Zoomable Photo View
 
 The following **additional** features are implemented:
 
 - [x] Created separate data abstraction class for InstagramData
+- [x] Added like count with int converted to string, ie: 10000 to 10.0k
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://cloud.githubusercontent.com/assets/1156702/13030362/e8d88b56-d25c-11e5-8b5a-88682e1e77ab.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/Ad3Aqxq.gifv' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-- Unfortunately I was pressed for time, so didn't get to try all the bonus features.  Planning to circle back and add more throughout the weekend.
+- I wanted to create a "close" button that sat on top of the scroll view, but it wouldn't stay in a fixed position during pinch zoom
+- I had a hard time figuring out how to pinch zoom on the simulator, ended up googling it ;)
 
 ## License
 

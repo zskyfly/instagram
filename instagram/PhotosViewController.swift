@@ -84,13 +84,20 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         profileView.layer.borderWidth = 1;
         profileView.setImageWithURL(instagramResult.getProfilePictureUrl())
 
-        let usernameLabel = UILabel(frame: CGRect(x:50, y:10, width: 280, height: 30))
+        let usernameLabel = UILabel(frame: CGRect(x:50, y:10, width: 270, height: 30))
         // TODO: add blue color
-        // usernameLabel.textColor = UIColor()
+        usernameLabel.textColor = UIColor(red: 18.0 / 255.0, green: 86.0 / 255.0, blue: 136.0 / 255.0, alpha: 1.0)
         usernameLabel.text = instagramResult.getUsername()
+        
+        let likeCountLabel = UILabel(frame: CGRect(x:160, y:10, width:150, height: 30))
+        likeCountLabel.textAlignment = NSTextAlignment.Right
+        likeCountLabel.textColor = UIColor(red: 165.0 / 255.0, green: 167.0 / 255.0, blue: 170.0 / 255.0, alpha: 1.0)
+        likeCountLabel.font = UIFont(name: "System", size: CGFloat(10))
+        likeCountLabel.text = instagramResult.getLikeCount()
 
         headerView.addSubview(profileView)
         headerView.addSubview(usernameLabel)
+        headerView.addSubview(likeCountLabel)
 
         return headerView
     }
